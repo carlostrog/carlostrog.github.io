@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wow窝窝_视频社区_创作者与短视频内容</title>
+<meta name="description" content="wow窝窝是一个聚焦短视频创作与社区互动的视频品牌，这里有创作者访谈、热门短片、拍摄技巧与专题策划，适合想找优质视频内容和创作灵感的人。">
+<meta name="keywords" content="短视频社区,创作者访谈,拍摄技巧,热门短片,视频专题">
+<style>
+:root{
+  --bg:#0c0e14;
+  --bg-soft:#121521;
+  --panel:#171b2a;
+  --panel-2:#1e2335;
+  --line:#2a3046;
+  --line-soft:#222739;
+  --text:#eef1f8;
+  --text-2:#a9b1c8;
+  --text-3:#7c849c;
+  --accent:#ff5b5b;
+  --accent-2:#ffb84d;
+  --accent-3:#4dd6c1;
+  --violet:#8f7bff;
+  --radius:14px;
+  --radius-s:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --head-h:64px;
+  --bar-h:38px;
+  --maxw:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + var(--bar-h) + 14px)}
+body{
+  margin:0;
+  background:radial-gradient(1200px 600px at 15% -10%,#1a1f34 0%,transparent 60%),
+             radial-gradient(900px 500px at 95% 0%,#241a2c 0%,transparent 55%),
+             var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px;border-radius:4px}
+
+/* ---------- 吸顶公告条 ---------- */
+.announce{
+  position:sticky;top:0;z-index:60;
+  height:var(--bar-h);
+  display:flex;align-items:center;
+  background:linear-gradient(90deg,#3a1220 0%,#5a1f2a 45%,#7a3a1e 100%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+}
+.announce-in{
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;width:100%;
+  display:flex;align-items:center;gap:12px;overflow:hidden;white-space:nowrap;
+}
+.announce .tag{
+  flex:none;background:var(--accent);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:20px;letter-spacing:.5px;
+}
+.announce-track{display:flex;gap:34px;color:#ffe6dd;overflow:hidden}
+.announce-track span{opacity:.92}
+.announce-track b{color:#fff;font-weight:600}
+
+/* ---------- 页头 ---------- */
+.head{
+  position:sticky;top:var(--bar-h);z-index:55;
+  height:var(--head-h);
+  background:rgba(12,14,20,.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.head-in{
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;height:100%;
+  display:flex;align-items:center;gap:26px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{
+  width:36px;height:36px;border-radius:11px;
+  background:linear-gradient(140deg,var(--accent) 0%,#ff8a3d 55%,var(--accent-2) 100%);
+  display:grid;place-items:center;
+  box-shadow:0 6px 18px rgba(255,91,91,.3);
+}
+.brand-mark svg{width:21px;height:21px}
+.brand-text{font-size:20px;font-weight:800;letter-spacing:.3px}
+.brand-text em{font-style:normal;color:var(--accent-2)}
+.nav{display:flex;gap:4px;flex:1;overflow:hidden}
+.nav a{
+  padding:7px 12px;border-radius:8px;font-size:14px;color:var(--text-2);
+  white-space:nowrap;transition:.18s;
+}
+.nav a:hover{color:var(--text);background:var(--panel-2)}
+.head-act{display:flex;align-items:center;gap:10px;flex:none}
+.search{
+  display:flex;align-items:center;gap:6px;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:20px;padding:5px 6px 5px 12px;
+}
+.search input{
+  background:transparent;border:0;color:var(--text);font-size:13px;width:130px;outline:none;
+}
+.search input::placeholder{color:var(--text-3)}
+.search button{
+  border:0;background:var(--accent);color:#fff;border-radius:14px;
+  padding:4px 12px;font-size:12.5px;cursor:pointer;font-weight:600;
+}
+.btn-ghost{
+  border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--text-2);
+  padding:6px 14px;font-size:13px;cursor:pointer;
+}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent)}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-soft);
+}
+.hero-in{
+  max-width:var(--maxw);margin:0 auto;padding:56px 20px 60px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--accent-2);
+  border:1px solid rgba(255,184,77,.35);background:rgba(255,184,77,.08);
+  padding:4px 12px;border-radius:20px;margin-bottom:20px;letter-spacing:.5px;
+}
+.hero-kicker i{width:6px;height:6px;border-radius:50%;background:var(--accent-2);display:block}
+.hero h1{
+  font-size:clamp(38px,5.2vw,62px);
+  letter-spacing:-1px;
+  background:linear-gradient(100deg,#fff 20%,#ffd0c0 55%,#ffb84d 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:18px;
+}
+.hero-desc{color:var(--text-2);font-size:16px;max-width:520px;margin-bottom:26px}
+.hero-desc b{color:var(--text)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),#ff7a3d);
+  color:#fff;border:0;border-radius:24px;padding:11px 26px;font-size:14.5px;font-weight:600;
+  cursor:pointer;box-shadow:0 10px 26px rgba(255,91,91,.32);
+}
+.btn-primary:hover{filter:brightness(1.07)}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:22px;color:var(--text)}
+.hero-stats div span{font-size:12.5px;color:var(--text-3)}
+.hero-visual{position:relative}
+.hero-visual .frame{
+  position:relative;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  background:var(--panel);
+}
+.hero-visual .frame img{width:100%;height:340px;object-fit:cover;opacity:.92}
+.hero-visual .play{
+  position:absolute;inset:0;display:grid;place-items:center;
+}
+.hero-visual .play span{
+  width:70px;height:70px;border-radius:50%;
+  background:rgba(255,91,91,.9);display:grid;place-items:center;
+  box-shadow:0 0 0 10px rgba(255,91,91,.18);
+}
+.hero-visual .play svg{width:26px;height:26px;fill:#fff;margin-left:3px}
+.hero-visual .caption{
+  position:absolute;left:14px;bottom:14px;right:14px;
+  background:rgba(10,12,18,.72);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.09);border-radius:12px;
+  padding:10px 14px;font-size:13px;color:#fff;
+}
+.hero-visual .caption span{display:block;font-size:11.5px;color:var(--accent-2);margin-top:2px}
+.hero-chip{
+  position:absolute;right:-8px;top:-14px;
+  background:var(--panel-2);border:1px solid var(--line);
+  border-radius:12px;padding:8px 14px;font-size:12.5px;color:var(--accent-3);
+  box-shadow:var(--shadow);
+}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;grid-template-columns:180px minmax(0,1fr) 260px;gap:28px;
+  padding:38px 0 10px;align-items:start;
+}
+.chan{
+  position:sticky;top:calc(var(--head-h) + var(--bar-h) + 18px);
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 12px;
+}
+.chan h3{font-size:12px;color:var(--text-3);letter-spacing:1.5px;padding:0 8px 10px;font-weight:600}
+.chan a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--text-2);
+  transition:.16s;
+}
+.chan a:hover{background:var(--panel-2);color:var(--text)}
+.chan a small{font-size:11px;color:var(--text-3)}
+.chan .on{background:rgba(255,91,91,.12);color:#ffb3ae;font-weight:600}
+.side{
+  position:sticky;top:calc(var(--head-h) + var(--bar-h) + 18px);
+  display:grid;gap:18px;
+}
+.side-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;
+}
+.side-card h3{font-size:14px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--accent);display:block}
+.rank li{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line-soft);font-size:13px}
+.rank li:last-child{border:0}
+.rank .no{
+  flex:none;width:19px;height:19px;border-radius:5px;background:var(--panel-2);
+  color:var(--text-3);font-size:11px;display:grid;place-items:center;font-weight:700;margin-top:2px;
+}
+.rank li:nth-child(1) .no{background:var(--accent);color:#fff}
+.rank li:nth-child(2) .no{background:#ff8a3d;color:#fff}
+.rank li:nth-child(3) .no{background:var(--accent-2);color:#241500}
+.rank a{color:var(--text-2);flex:1}
+.rank a:hover{color:var(--accent-2)}
+.rank em{font-style:normal;font-size:11px;color:var(--text-3);flex:none}
+.side-tags{display:flex;flex-wrap:wrap;gap:7px}
+.side-tags a{
+  font-size:12px;padding:4px 10px;border-radius:14px;
+  background:var(--panel-2);border:1px solid var(--line);color:var(--text-2);
+}
+.side-tags a:hover{border-color:var(--accent);color:var(--accent-2)}
+
+/* ---------- 板块通用 ---------- */
+.section{margin-bottom:44px;scroll-margin-top:calc(var(--head-h) + var(--bar-h) + 16px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.sec-head h2{font-size:21px;letter-spacing:.2px}
+.sec-head h2 small{font-size:12px;color:var(--text-3);font-weight:400;margin-left:10px;letter-spacing:.5px}
+.sec-head .more{font-size:12.5px;color:var(--text-3);flex:none}
+.sec-head .more:hover{color:var(--accent-2)}
+.lead{color:var(--text-2);font-size:14px;margin-bottom:16px}
+.lead b{color:var(--text)}
+
+/* 概览 */
+.overview{
+  background:linear-gradient(160deg,var(--panel) 0%,#151a29 100%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+}
+.overview p{color:var(--text-2);font-size:14.5px;margin-bottom:12px}
+.overview p:last-child{margin-bottom:0}
+.overview b{color:var(--accent-2);font-weight:600}
+
+/* 卡片网格 */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{border-color:#3b4363;transform:translateY(-2px);box-shadow:var(--shadow)}
+.card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-2)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.card:hover .thumb img{transform:scale(1.05)}
+.card .dur{
+  position:absolute;right:8px;bottom:8px;background:rgba(6,8,14,.82);
+  font-size:11px;padding:1px 7px;border-radius:5px;color:#dfe4f2;
+}
+.card .body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:14.5px;line-height:1.45}
+.card .type{font-size:11px;color:var(--accent-2);letter-spacing:.5px}
+.card p{font-size:12.5px;color:var(--text-2);line-height:1.65}
+.card .meta{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;color:var(--text-3);padding-top:8px;border-top:1px dashed var(--line-soft);
+}
+.card .meta .hot{color:var(--accent)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{
+  font-size:11px;padding:1px 7px;border-radius:10px;
+  background:var(--panel-2);color:var(--text-3);border:1px solid var(--line-soft);
+}
+
+/* 动态列表 */
+.updates{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.update{
+  display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--line-soft);
+}
+.update:last-child{border-bottom:0}
+.update:hover{background:var(--panel-2)}
+.update .t{font-size:11.5px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.update .n{font-size:14px;font-weight:600;display:block;margin-bottom:2px}
+.update .d{font-size:12.5px;color:var(--text-2)}
+.update .badge{
+  font-size:11px;padding:2px 9px;border-radius:10px;flex:none;
+  background:rgba(77,214,193,.13);color:var(--accent-3);border:1px solid rgba(77,214,193,.25);
+}
+.update .badge.new{background:rgba(255,91,91,.13);color:#ff8e8e;border-color:rgba(255,91,91,.3)}
+
+/* 分类 */
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);
+  padding:14px;transition:.18s;
+}
+.cat:hover{border-color:var(--accent);background:var(--panel-2)}
+.cat b{display:block;font-size:14px;margin-bottom:4px}
+.cat span{font-size:12px;color:var(--text-3);line-height:1.55}
+
+/* 深度解析 */
+.deep{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 30px;
+}
+.deep h3{font-size:16.5px;margin:22px 0 10px;color:var(--accent-2)}
+.deep h3:first-of-type{margin-top:6px}
+.deep p{color:var(--text-2);font-size:14.5px;margin-bottom:11px}
+.deep ul{margin:0 0 12px;padding-left:0}
+.deep li{
+  position:relative;padding-left:18px;color:var(--text-2);font-size:14px;margin-bottom:7px;
+}
+.deep li::before{
+  content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:2px;
+  background:var(--accent-3);
+}
+.deep b{color:var(--text)}
+
+/* 指南步骤 */
+.steps{display:grid;gap:12px}
+.step{
+  display:grid;grid-template-columns:44px 1fr;gap:14px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);
+  padding:16px 18px;
+}
+.step .num{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--accent),#ff8a3d);color:#fff;font-weight:800;font-size:15px;
+}
+.step h4{font-size:14.5px;margin-bottom:4px}
+.step p{font-size:13px;color:var(--text-2)}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);
+  padding:0 18px;
+}
+.faq summary{
+  cursor:pointer;list-style:none;padding:14px 0;font-size:14.5px;font-weight:600;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";color:var(--accent-2);font-size:18px;font-weight:400;flex:none;transition:.2s;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{font-size:13.5px;color:var(--text-2);padding:0 0 15px;line-height:1.75}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);
+  padding:14px 16px;
+}
+.comment .who{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.avatar{
+  width:27px;height:27px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:11.5px;font-weight:700;color:#fff;
+}
+.comment .who b{font-size:13px}
+.comment .who span{font-size:11px;color:var(--text-3);margin-left:auto}
+.comment p{font-size:13px;color:var(--text-2);line-height:1.7}
+.comment p em{font-style:normal;color:var(--accent-2)}
+
+/* 资讯 */
+.news{display:grid;gap:12px}
+.news-item{
+  display:grid;grid-template-columns:132px 1fr;gap:16px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);
+  overflow:hidden;transition:.18s;
+}
+.news-item:hover{border-color:#3b4363}
+.news-item img{width:100%;height:100%;min-height:92px;object-fit:cover}
+.news-item .nb{padding:12px 16px 12px 0}
+.news-item h4{font-size:14px;margin-bottom:5px}
+.news-item h4:hover{color:var(--accent-2)}
+.news-item p{font-size:12.5px;color:var(--text-2);line-height:1.65}
+.news-item .date{font-size:11.5px;color:var(--text-3);margin-top:6px;display:block}
+
+/* 相关推荐 标签索引 */
+.rel{display:flex;flex-wrap:wrap;gap:9px}
+.rel a{
+  font-size:13px;padding:7px 15px;border-radius:20px;
+  background:var(--panel);border:1px solid var(--line);color:var(--text-2);transition:.18s;
+}
+.rel a:hover{border-color:var(--accent);color:var(--accent-2);background:var(--panel-2)}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:22px}
+.timeline::before{
+  content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--line);
+}
+.tl{position:relative;margin-bottom:16px}
+.tl::before{
+  content:"";position:absolute;left:-20px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--panel);border:2px solid var(--accent);
+}
+.tl time{font-size:11.5px;color:var(--accent-3);display:block;margin-bottom:2px}
+.tl b{font-size:13.5px}
+.tl p{font-size:12.5px;color:var(--text-2)}
+
+/* 空结果 */
+.noresult{
+  display:none;background:var(--panel);border:1px dashed var(--line);
+  border-radius:var(--radius-s);padding:26px;text-align:center;color:var(--text-3);font-size:13.5px;
+}
+.noresult.on{display:block}
+
+/* 页尾 */
+.foot{
+  border-top:1px solid var(--line-soft);margin-top:20px;
+  background:linear-gradient(180deg,transparent,rgba(255,91,91,.04));
+}
+.foot-in{
+  max-width:var(--maxw);margin:0 auto;padding:44px 20px 30px;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;
+}
+.foot-brand p{font-size:13px;color:var(--text-3);margin-top:12px;max-width:280px;line-height:1.75}
+.foot h4{font-size:13px;color:var(--text);margin-bottom:12px;letter-spacing:.5px}
+.foot ul li{margin-bottom:8px}
+.foot ul a{font-size:12.5px;color:var(--text-3)}
+.foot ul a:hover{color:var(--accent-2)}
+.foot-bottom{
+  max-width:var(--maxw);margin:0 auto;padding:16px 20px 34px;
+  border-top:1px solid var(--line-soft);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:var(--text-3);
+}
+
+/* 响应式 */
+@media (max-width:1180px){
+  .layout{grid-template-columns:160px minmax(0,1fr);}
+  .side{position:static;grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:1024px){
+  .nav{display:none}
+  .hero-in{grid-template-columns:1fr;gap:32px;padding:40px 20px 46px}
+  .hero-visual .frame img{height:280px}
+  .layout{grid-template-columns:1fr;gap:22px}
+  .chan{position:static;display:flex;gap:6px;overflow-x:auto;padding:10px}
+  .chan h3{display:none}
+  .chan a{flex:none;white-space:nowrap;background:var(--panel-2)}
+  .side{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .comments{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  :root{--head-h:58px}
+  .announce-in{padding:0 14px}
+  .announce-track span:nth-child(n+2){display:none}
+  .head-in{padding:0 14px;gap:14px}
+  .search input{width:88px}
+  .btn-ghost{display:none}
+  .wrap{padding:0 14px}
+  .hero h1{font-size:36px}
+  .hero-stats{gap:22px}
+  .cards{grid-template-columns:1fr}
+  .cats{grid-template-columns:1fr 1fr}
+  .deep{padding:20px 18px}
+  .update{grid-template-columns:64px 1fr;gap:10px}
+  .update .badge{display:none}
+  .news-item{grid-template-columns:100px 1fr}
+  .news-item .nb{padding:11px 12px 11px 0}
+  .foot-in{grid-template-columns:1fr;gap:24px}
+  .side-card{padding:14px}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:4px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- 公告条 -->
+<div class="announce">
+  <div class="announce-in">
+    <span class="tag">动态</span>
+    <div class="announce-track">
+      <span>本周新增 <b>18 支</b> 原创短片 · 11 月 25 日更新</span>
+      <span>「城市夜行」拍摄挑战赛 11 月 28 日截止投稿</span>
+      <span>创作者访谈第 42 期：<b>阿岸</b> 聊 15 秒叙事</span>
+    </div>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="/#top" aria-label="wow窝窝 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 7.5v9l7 4.5V3L4 7.5Z" fill="#fff" opacity=".95"/>
+          <path d="M13.5 4.2c3.6 1.3 5.6 4.7 5.6 7.8s-2 6.5-5.6 7.8V4.2Z" fill="#fff" opacity=".65"/>
+        </svg>
+      </span>
+      <span class="brand-text">wow<em>窝窝</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="/#overview">品牌概览</a>
+      <a href="/#featured">精选短片</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#cats">分类频道</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#faq">常见问答</a>
+    </nav>
+    <div class="head-act">
+      <div class="search" role="search">
+        <input id="q" type="search" placeholder="搜短片 / 创作者" aria-label="搜索站内短片与创作者">
+        <button id="qbtn" type="button">搜索</button>
+      </div>
+      <button class="btn-ghost" type="button">投稿入口</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <span class="hero-kicker"><i></i>短视频社区 · 创作者与作品</span>
+        <h1>wow窝窝</h1>
+        <p class="hero-desc">
+          一个以 <b>15 秒到 8 分钟</b> 原创短片为核心的视频社区，包含剧情短片、纪录片段、拍摄教学与创作者访谈四条主线。每周固定更新，社区投稿与官方策划并行。
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="/#featured">看本周精选短片</a>
+          <a class="btn-ghost" href="/#cats" style="border-radius:24px;padding:11px 24px;font-size:14.5px">按分类浏览</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>4,260+</b><span>在库短片</span></div>
+          <div><b>312</b><span>入驻创作者</span></div>
+          <div><b>18 支</b><span>本周新增</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-chip">今日封面 · 第 42 期访谈</div>
+        <div class="frame">
+          <img src="https://picsum.photos/seed/wowwowo-hero42/800/400" width="800" height="400" alt="wow窝窝 创作者访谈第42期封面，导演阿岸在剪辑台前" fetchpriority="high">
+          <div class="play" aria-hidden="true">
+            <span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="caption">
+            阿岸：15 秒里怎么讲完一个反转
+            <span>访谈 · 全长 08:12 · 今天 10:00 上线</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- 左频道栏 -->
+      <aside class="chan" aria-label="频道导航">
+        <h3>频道</h3>
+        <a href="/#cats" class="on">剧情短片 <small>986</small></a>
+        <a href="/#cats">纪录片段 <small>742</small></a>
+        <a href="/#cats">拍摄教学 <small>521</small></a>
+        <a href="/#cats">创作者访谈 <small>42</small></a>
+        <a href="/#cats">城市夜行 <small>233</small></a>
+        <a href="/#cats">一镜到底 <small>168</small></a>
+        <a href="/#cats">声音设计 <small>94</small></a>
+        <a href="/#cats">手机影像 <small>310</small></a>
+        <a href="/#cats">幕后花絮 <small>187</small></a>
+        <a href="/#cats">新人首作 <small>456</small></a>
+        <a href="/#cats">专题策划 <small>28</small></a>
+      </aside>
+
+      <!-- 中主内容 -->
+      <div>
+
+        <!-- 1. 概览 -->
+        <section class="section" id="overview">
+          <div class="sec-head">
+            <h2>这个社区在做什么 <small>品牌概览</small></h2>
+          </div>
+          <div class="overview">
+            <p>
+              wow窝窝 的内容围绕“短”展开，但不追求越短越好。目前站内分为四个方向：<b>剧情短片</b>（3—8 分钟，完整叙事）、<b>纪录片段</b>（1—5 分钟，真实场景切片）、<b>拍摄教学</b>（5—12 分钟，可复用手法）、<b>创作者访谈</b>（20—40 分钟，长对话）。四条线各自独立更新，也常常交叉，比如一期访谈会拆出独立的拍摄教学片段。
+            </p>
+            <p>
+              当前值得关注的具体内容有三块。第一是正在进行的<b>「城市夜行」拍摄挑战赛</b>，要求全部素材在 22:00 之后拍摄，已收到 233 支投稿，题材从夜间便利店到凌晨高架桥都有。第二是<b>一镜到底</b>栏目在 11 月集中放出的 6 支作品，其中《电梯里的四十七秒》和《菜市场三分钟》是讨论度最高的两支。第三是<b>声音设计</b>专题，从环境声采样到拟音棚实录，适合已经能拍画面、但声音始终做不干净的创作者。
+            </p>
+            <p>
+              平台的更新节奏是：每周二、周五固定上新短片，每周三发布一期访谈，每月最后一周做一次专题合集。社区投稿常年开放，新人首作会进入单独的新人首作频道，由编辑做基础点评。
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. 精选 -->
+        <section class="section" id="featured">
+          <div class="sec-head">
+            <h2>本周精选短片 <small>9 支</small></h2>
+            <a class="more" href="/#updates">查看全部更新 →</a>
+          </div>
+          <div class="cards" id="cardGrid">
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-dianti47/400/300" width="400" height="300" loading="lazy" alt="短片《电梯里的四十七秒》剧照，夜间电梯内的单人镜头">
+                <span class="dur">04:47</span>
+              </div>
+              <div class="body">
+                <span class="type">剧情短片 · 一镜到底</span>
+                <h3>电梯里的四十七秒</h3>
+                <p>整支片子在一个电梯轿厢内完成，靠楼层灯变化推进时间。演员只有一位，台词不到十句，结尾的反转依赖镜面反射完成。</p>
+                <div class="tags"><span>一镜到底</span><span>夜间拍摄</span><span>单人表演</span></div>
+                <div class="meta"><span class="hot">热度 9.6</span><span>11-23 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-caishi03/400/300" width="400" height="300" loading="lazy" alt="短片《菜市场三分钟》剧照，清晨菜市场的摊位与人流">
+                <span class="dur">03:02</span>
+              </div>
+              <div class="body">
+                <span class="type">纪录片段</span>
+                <h3>菜市场三分钟</h3>
+                <p>从 5:40 开市拍到 8:40 收摊，剪成三分钟。没有旁白，全靠摊主的方言叫卖和称重声串起来，是一支可以当环境声素材用的片子。</p>
+                <div class="tags"><span>环境声</span><span>纪实</span><span>无旁白</span></div>
+                <div class="meta"><span class="hot">热度 9.1</span><span>11-21 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-fangtan42/400/300" width="400" height="300" loading="lazy" alt="创作者访谈第42期现场，导演阿岸在监视器前讲解分镜">
+                <span class="dur">38:20</span>
+              </div>
+              <div class="body">
+                <span class="type">创作者访谈</span>
+                <h3>阿岸：15 秒里怎么讲完一个反转</h3>
+                <p>从分镜表讲到剪辑点，阿岸拆了自己三支旧作的转折位置，也提到为什么他坚持不用配乐推情绪，改用现场声。</p>
+                <div class="tags"><span>分镜</span><span>剪辑节奏</span><span>现场声</span></div>
+                <div class="meta"><span class="hot">热度 8.8</span><span>今天 10:00</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-yejing11/400/300" width="400" height="300" loading="lazy" alt="「城市夜行」参赛作品剧照，凌晨高架桥下的路灯与行人">
+                <span class="dur">06:15</span>
+              </div>
+              <div class="body">
+                <span class="type">剧情短片 · 挑战赛</span>
+                <h3>高架桥下的第三个人</h3>
+                <p>「城市夜行」目前票数最高的一支。三个陌生人在桥下等同一班夜班车，全程用固定机位，靠人物进出画完成调度。</p>
+                <div class="tags"><span>城市夜行</span><span>固定机位</span><span>群像</span></div>
+                <div class="meta"><span class="hot">热度 8.7</span><span>11-19 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-shengyin07/400/300" width="400" height="300" loading="lazy" alt="声音设计教学画面，拟音棚内的道具与麦克风">
+                <span class="dur">11:08</span>
+              </div>
+              <div class="body">
+                <span class="type">拍摄教学 · 声音设计</span>
+                <h3>用一把芹菜做出骨折声</h3>
+                <p>拟音入门第二讲，讲清楚三件事：什么样的小道具能替代什么声音、麦克风该放多近、为什么不要在同一轨里叠太多层。</p>
+                <div class="tags"><span>拟音</span><span>声音设计</span><span>入门</span></div>
+                <div class="meta"><span class="hot">收藏 3.1k</span><span>11-18 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-shouji22/400/300" width="400" height="300" loading="lazy" alt="手机影像教学画面，手持手机在雨夜街头拍摄">
+                <span class="dur">07:40</span>
+              </div>
+              <div class="body">
+                <span class="type">拍摄教学 · 手机影像</span>
+                <h3>手机拍夜景，先解决手抖再谈画质</h3>
+                <p>不讲参数堆砌，只讲三个可立刻用上的动作：肘部找支点、曝光锁定、用连拍代替单张。附一段前后对比素材。</p>
+                <div class="tags"><span>手机影像</span><span>夜景</span><span>稳定</span></div>
+                <div class="meta"><span class="hot">收藏 2.6k</span><span>11-17 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-xinren08/400/300" width="400" height="300" loading="lazy" alt="新人首作短片剧照，宿舍窗边的两个学生角色">
+                <span class="dur">05:31</span>
+              </div>
+              <div class="body">
+                <span class="type">新人首作 · 剧情短片</span>
+                <h3>宿舍熄灯之后</h3>
+                <p>导演是大三学生，全片在真实宿舍拍摄，只用了两盏台灯做光源。剪辑略生涩，但对话写得自然，是本月新人频道里完成度较高的一支。</p>
+                <div class="tags"><span>新人首作</span><span>低照度</span><span>校园</span></div>
+                <div class="meta"><span class="hot">编辑推荐</span><span>11-16 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-muhou15/400/300" width="400" height="300" loading="lazy" alt="幕后花絮画面，片场灯架与场记板">
+                <span class="dur">09:24</span>
+              </div>
+              <div class="body">
+                <span class="type">幕后花絮</span>
+                <h3>一支 4 分钟短片拍了 11 天</h3>
+                <p>完整记录了从勘景到杀青的过程，重点在第三天：原定场地临时关闭，剧组如何在 6 小时内换到备用场景并保住原分镜。</p>
+                <div class="tags"><span>幕后花絮</span><span>制片</span><span>勘景</span></div>
+                <div class="meta"><span class="hot">热度 8.2</span><span>11-14 上线</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb">
+                <img src="https://picsum.photos/seed/wowwowo-zhuanti28/400/300" width="400" height="300" loading="lazy" alt="专题策划画面，夜间城市天际线与拍摄者剪影">
+                <span class="dur">合集</span>
+              </div>
+              <div class="body">
+                <span class="type">专题策划</span>
+                <h3>十一月专题：夜里能拍到什么</h3>
+                <p>把本月与夜间拍摄相关的 14 支作品、3 篇教学和 1 期访谈汇总在一起，按“人物 / 空间 / 声音”三类编排，方便按需看。</p>
+                <div class="tags"><span>专题策划</span><span>夜间</span><span>合集</span></div>
+                <div class="meta"><span class="hot">合集 14 支</span><span>11-12 上线</span></div>
+              </div>
+            </article>
+
+          </div>
+          <div class="noresult" id="noresult">没有找到匹配的短片或创作者，换个关键词试试，例如「一镜到底」「声音设计」「手机影像」。</div>
+        </section>
+
+        <!-- 3. 更新动态 -->
+        <section class="section" id="updates">
+          <div class="sec-head">
+            <h2>最新更新与动态 <small>11 条</small></h2>
+          </div>
+          <div class="updates">
+            <div class="update"><span class="t">今天 10:00</span><div><span class="n">阿岸访谈第 42 期上线</span><span class="d">38 分钟正片，附 6 分钟分镜拆解加长版</span></div><span class="badge new">新上线</span></div>
+            <div class="update"><span class="t">今天 09:20</span><div><span class="n">《电梯里的四十七秒》进入本周榜首</span><span class="d">热度 9.6，评论区讨论集中在结尾镜面反转</span></div><span class="badge">热度</span></div>
+            <div class="update"><span class="t">昨天 21:10</span><div><span class="n">「城市夜行」挑战赛投稿达 233 支</span><span class="d">距 11 月 28 日截止还剩 3 天</span></div><span class="badge new">倒计时</span></div>
+            <div class="update"><span class="t">昨天 18:40</span><div><span class="n">声音设计专题新增拟音实录第三讲</span><span class="d">本期讲雨声与脚步的分层处理</span></div><span class="badge">更新</span></div>
+            <div class="update"><span class="t">11-23 20:00</span><div><span class="n">《菜市场三分钟》开放环境声素材下载</span><span class="d">提供 24bit 无损版本，可用于二次创作</span></div><span class="badge">开放</span></div>
+            <div class="update"><span class="t">11-22 15:30</span><div><span class="n">新人首作频道本月收录 46 支</span><span class="d">其中 9 支获得编辑点评</span></div><span class="badge">频道</span></div>
+            <div class="update"><span class="t">11-21 12:00</span><div><span class="n">手机影像栏目改版</span><span class="d">按「稳定 / 曝光 / 收音」三个子类重新归档</span></div><span class="badge">改版</span></div>
+            <div class="update"><span class="t">11-20 19:15</span><div><span class="n">一镜到底栏目放出第 6 支作品</span><span class="d">《走廊尽头》全长 2 分 40 秒，单镜头完成</span></div><span class="badge new">新上线</span></div>
+            <div class="update"><span class="t">11-19 22:30</span><div><span class="n">《高架桥下的第三个人》票数反超</span><span class="d">目前位列挑战赛第一</span></div><span class="badge">排名</span></div>
+            <div class="update"><span class="t">11-18 11:00</span><div><span class="n">拟音入门第二讲上线</span><span class="d">「用一把芹菜做出骨折声」收藏 3.1k</span></div><span class="badge">更新</span></div>
+            <div class="update"><span class="t">11-16 09:00</span><div><span class="n">十一月专题合集发布</span><span class="d">夜间拍摄相关 14 支作品 + 3 篇教学</span></div><span class="badge">专题</span></div>
+          </div>
+        </section>
+
+        <!-- 4. 分类 -->
+        <section class="section" id="cats">
+          <div class="sec-head">
+            <h2>分类频道入口 <small>8 个垂类</small></h2>
+          </div>
+          <div class="cats">
+            <a class="cat" href="/#featured"><b>剧情短片</b><span>3—8 分钟完整叙事，含反转、群像、单人表演</span></a>
+            <a class="cat" href="/#featured"><b>纪录片段</b><span>真实场景切片，多无旁白，强调现场声</span></a>
+            <a class="cat" href="/#featured"><b>拍摄教学</b><span>分镜、灯光、收音、剪辑的可复用手法</span></a>
+            <a class="cat" href="/#featured"><b>创作者访谈</b><span>长对话，讲创作决策而不是作品简介</span></a>
+            <a class="cat" href="/#featured"><b>一镜到底</b><span>单镜头完成的作品与调度拆解</span></a>
+            <a class="cat" href="/#featured"><b>声音设计</b><span>拟音、环境声采样、混音分层</span></a>
+            <a class="cat" href="/#featured"><b>手机影像</b><span>用手机完成拍摄的稳定、曝光与收音方案</span></a>
+            <a class="cat" href="/#featured"><b>新人首作</b><span>首次投稿作品，附编辑基础点评</span></a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="section" id="deep">
+          <div class="sec-head">
+            <h2>深度解析：短片的三条判断线 <small>约 900 字</small></h2>
+          </div>
+          <div class="deep">
+            <p>在 wow窝窝 的评论区里，最常见的争论不是“好不好看”，而是“这算不算短片”。同一个 4 分钟的作品，有人觉得完整，有人觉得只是加长版片段。分歧通常来自三个维度：叙事是否闭合、技术是否服务于内容、以及时长与信息的比例是否合理。</p>
+
+            <h3>一、叙事闭合：结尾有没有回答开头提出的问题</h3>
+            <p>短片和长片最大的差别不是长度，而是容错率。长片可以用二十分钟铺陈一个次要人物，短片没有这个空间，所以开头三十秒内必须建立一个明确的问题，结尾必须给出回应——哪怕回应是“无解”。</p>
+            <ul>
+              <li><b>闭合型</b>：如《电梯里的四十七秒》，开头抛出“他为什么一直按不到那一层”，结尾用镜面反射给出答案。观众看完有落点。</li>
+              <li><b>开放型</b>：如《高架桥下的第三个人》，三个人最后都上了车，但谁也没说话。它不回答人物关系，只回答“这一夜发生了什么”，属于以氛围收尾。</li>
+              <li><b>未闭合</b>：新人作品里最常见的问题，前两分钟堆了很多信息，最后 30 秒突然结束，观众不知道要看什么。这类作品在编辑点评里通常会被建议“砍掉前半段的一半”。</li>
+            </ul>
+
+            <h3>二、技术是否服务于内容</h3>
+            <p>站内一镜到底栏目之所以讨论度高，是因为它把技术选择摆到了明面上。单镜头不是炫技，它换来的是时间的连续性——观众知道中间没有剪断，因此对人物状态的变化更敏感。反过来，如果一支片子用了长镜头，但内容本身是碎片化的对话，那这个技术选择就是负担。</p>
+            <p>同样的判断适用于声音。声音设计专题里反复强调一点：<b>不要为了“听起来专业”而叠层</b>。一支 3 分钟的纪录片段，如果现场声本身足够干净，加背景音乐反而会削弱真实感。《菜市场三分钟》全程无配乐，靠叫卖声和称重声建立节奏，就是这种思路的典型。</p>
+
+            <h3>三、时长与信息密度</h3>
+            <p>站内作品时长跨度从 15 秒到 40 分钟不等，但时长本身不构成评价标准。可操作的判断方法是看“每分钟有几个新信息”：</p>
+            <ul>
+              <li>15 秒—1 分钟：通常只承载一个反转或一个视觉笑点，信息点 1—2 个。</li>
+              <li>3—5 分钟：可以完成一次完整的情境建立 + 转折，信息点 3—5 个，是站内投稿最集中的区间。</li>
+              <li>8 分钟以上：需要至少两条线并行，否则观众会感到拖沓。这类作品在站内占比不到一成。</li>
+            </ul>
+            <p>与之相对，创作者访谈是唯一鼓励“慢”的栏目。38 分钟的访谈里，真正有价值的可能只有几分钟的分镜拆解，但前面的闲聊提供了判断依据——你能听出这个创作者在什么条件下做决策，这比结论本身更有用。</p>
+
+            <h3>四、三个维度怎么组合</h3>
+            <p>把三条线放在一起看，会得到几种典型组合：叙事闭合 + 技术克制 + 密度合理，通常就是当周精选；叙事开放 + 技术突出，容易进一镜到底或声音设计栏目，但热度未必高；叙事未闭合 + 技术堆砌，是新人作品最需要避免的组合，也是编辑点评里出现频率最高的问题类型。</p>
+            <p>需要说明的是，这三条线是社区讨论中逐渐形成的共识，不是评分规则。站内没有打分系统，热度来自播放、收藏和评论的综合计算，所以一支技术上很扎实但叙事平淡的作品，热度可能不如一支粗糙但情绪准确的作品。理解这一点，能帮助你在浏览时更快判断哪些内容值得花时间。</p>
+          </div>
+        </section>
+
+        <!-- 6. 体验指南 -->
+        <section class="section" id="guide">
+          <div class="sec-head">
+            <h2>观看顺序建议 <small>四步</small></h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="num">1</span>
+              <div>
+                <h4>先看当周精选，建立基准</h4>
+                <p>精选区的 9 支作品覆盖了不同类型，先用它们校准你对“完成度”的判断，再去看其他频道，不容易被单支作品带偏。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num">2</span>
+              <div>
+                <h4>按兴趣挑一个垂类深入</h4>
+                <p>喜欢故事就进剧情短片，喜欢真实场景就进纪录片段。一次只挑一个方向，看 5—8 支，比每类各看一支更容易看出差别。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num">3</span>
+              <div>
+                <h4>带着问题看教学和访谈</h4>
+                <p>如果你已经能拍出画面但声音总是脏，直接去声音设计专题；如果剪辑点总是踩不准，访谈里的分镜拆解比通用教程更有用。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num">4</span>
+              <div>
+                <h4>最后看新人首作，理解常见问题</h4>
+                <p>新人频道的作品完成度参差，但编辑点评指出了大量共性问题：开头过长、光源不足、声音过载。看完再回看精选，能明显看出差距在哪。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="sec-head">
+            <h2>常见问答 <small>6 个</small></h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>剧情短片一般多久更新一次？</summary>
+              <p>固定节奏是每周二、周五各上新一批，每批 3—6 支。专题合集在每月最后一周发布。遇到「城市夜行」这类挑战赛，投稿量会在截止前三天集中增加，那几天更新频率会临时提高。</p>
+            </details>
+            <details>
+              <summary>一镜到底和普通长镜头有什么区别？</summary>
+              <p>站内的一镜到底指整支作品只有一个镜头，中间没有任何剪辑点，常见时长在 2—6 分钟。普通长镜头是指单个镜头持续较久，但全片仍有其他剪辑。前者对调度和走位要求更高，因为任何失误都要从头再来。</p>
+            </details>
+            <details>
+              <summary>第一次看，从哪支作品开始比较好？</summary>
+              <p>如果只看一支，建议从《电梯里的四十七秒》开始，4 分 47 秒，叙事闭合、技术克制，能代表站内精选的平均水准。如果更偏好真实场景，可以先看《菜市场三分钟》，它同时也能当环境声素材用。</p>
+            </details>
+            <details>
+              <summary>短片的好坏通常看哪几个方面？</summary>
+              <p>社区讨论中主要看三点：结尾是否回应了开头提出的问题、技术选择是否服务于内容、每分钟的信息密度是否合理。站内没有打分系统，热度是播放、收藏和评论的综合结果，所以热度和完成度不完全一致。</p>
+            </details>
+            <details>
+              <summary>手机拍的片子会和相机拍的有明显差距吗？</summary>
+              <p>在光线充足、场景简单的条件下差距不大，站内不少纪录片段就是手机拍的。差距主要在暗光和快速运动场景：手机噪点更明显、自动对焦更容易犹豫。手机影像栏目给的方案是先解决稳定性，再谈画质。</p>
+            </details>
+            <details>
+              <summary>投稿有什么要求，新人作品会被点评吗？</summary>
+              <p>投稿常年开放，作品时长建议在 15 秒到 12 分钟之间，需为原创。新人首作频道专门收录首次投稿作品，编辑会给出基础点评，主要指出开头长度、光源和声音这三类最常见的问题。</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 评论 -->
+        <section class="section" id="comments">
+          <div class="sec-head">
+            <h2>社区评论 <small>16 条</small></h2>
+          </div>
+          <div class="comments">
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff5b5b">林</span><b>林间有雾</b><span>今天 11:24</span></div><p>《电梯里的四十七秒》结尾那个镜面反射我回看了三遍才看明白，<em>调度是真的细</em>。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff8a3d">阿</span><b>阿岸的场记板</b><span>今天 10:52</span></div><p>访谈里说坚持不用配乐推情绪，这点我认同，但也不是所有题材都适合，纪录片段里现场声本来就有节奏。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#4dd6c1">沉</span><b>沉默的取景器</b><span>今天 09:40</span></div><p>拟音那期讲得很实在，芹菜做骨折声我试了一下，确实比想象中像，就是麦克风距离要反复调。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#8f7bff">三</span><b>三分半钟</b><span>昨天 22:18</span></div><p>《菜市场三分钟》下载了环境声，用在自己片子里当底噪，比素材库干净多了。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ffb84d">夜</span><b>夜班公交</b><span>昨天 20:03</span></div><p>城市夜行这个题目挺好的，但投稿里一半都是拍路灯和空镜，真正有人的太少了。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff5b5b">小</span><b>小满不满</b><span>昨天 17:45</span></div><p>《高架桥下的第三个人》固定机位用了整整六分钟，一开始觉得闷，看到一半才明白是在等人物进出画。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#4dd6c1">胶</span><b>胶片不多了</b><span>11-24 15:20</span></div><p>手机影像改版之后分类清楚多了，稳定那一栏我基本全看完了，肘部找支点这招是真的有用。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#8f7bff">剪</span><b>剪辑台上的猫</b><span>11-24 11:08</span></div><p>新人频道的点评比作品本身更有价值，很多问题我自己也犯，比如开头拖太长。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff8a3d">南</span><b>南墙撞一下</b><span>11-23 23:41</span></div><p>一镜到底这期六支里，我觉得《走廊尽头》有点被低估了，2 分 40 秒没有一次走位失误。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ffb84d">录</span><b>录音笔没电了</b><span>11-23 19:12</span></div><p>声音设计专题建议标一下难度，前两讲入门能跟上，第三讲分层处理对新手有点跳。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff5b5b">慢</span><b>慢半拍的人</b><span>11-22 21:30</span></div><p>《宿舍熄灯之后》对话写得确实自然，但夜戏噪点有点多，可能是宿舍实在没法补光。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#4dd6c1">镜</span><b>镜头盖没摘</b><span>11-22 14:05</span></div><p>幕后那支讲临时换场地的，制片部分比拍摄部分更值得看，6 小时换场景还保住分镜不容易。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#8f7bff">周</span><b>周末不出门</b><span>11-21 22:47</span></div><p>十一月专题按人物、空间、声音分类很贴心，我直接按声音那一组看完了。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff8a3d">第</span><b>第一次拍片</b><span>11-21 16:33</span></div><p>想投稿但不知道时长多少合适，看完 FAQ 大概明白了，先拍个 3 分钟左右的试试。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ffb84d">灯</span><b>灯架倒了</b><span>11-20 20:19</span></div><p>播客式的访谈我不太看得下去，38 分钟有点长，希望能剪一个 10 分钟的精华版。</p></div>
+            <div class="comment"><div class="who"><span class="avatar" style="background:#ff5b5b">风</span><b>风口上的猪</b><span>11-19 23:02</span></div><p>挑战赛截止前三天肯定还有一批投稿涌进来，现在的排名不一定稳。</p></div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="sec-head">
+            <h2>相关资讯 <small>6 条</small></h2>
+          </div>
+          <div class="news">
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news01/600/400" width="600" height="400" loading="lazy" alt="一镜到底栏目第六支作品《走廊尽头》的片场照">
+              <div class="nb">
+                <h4>一镜到底栏目第六支《走廊尽头》上线</h4>
+                <p>全长 2 分 40 秒，单镜头完成，导演在评论区公开了完整走位图。</p>
+                <span class="date">2026-11-20</span>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news02/600/400" width="600" height="400" loading="lazy" alt="城市夜行挑战赛投稿作品夜拍画面">
+              <div class="nb">
+                <h4>「城市夜行」投稿突破 233 支，11 月 28 日截止</h4>
+                <p>题材集中在便利店、高架桥和夜班交通三类，编辑提示“有人出镜”的作品更容易进精选。</p>
+                <span class="date">2026-11-24</span>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news03/600/400" width="600" height="400" loading="lazy" alt="声音设计专题拟音实录第三讲的棚内画面">
+              <div class="nb">
+                <h4>声音设计专题更新第三讲：雨声与脚步的分层</h4>
+                <p>本期讲两层声音如何分轨录制再叠加，附一段三轨对照素材。</p>
+                <span class="date">2026-11-24</span>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news04/600/400" width="600" height="400" loading="lazy" alt="手机影像栏目改版后的界面示意">
+              <div class="nb">
+                <h4>手机影像栏目按稳定、曝光、收音重新归档</h4>
+                <p>原有 310 支作品重新分类，新增「一键对比」标签，方便看前后效果。</p>
+                <span class="date">2026-11-21</span>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news05/600/400" width="600" height="400" loading="lazy" alt="菜市场三分钟的环境声录制现场">
+              <div class="nb">
+                <h4>《菜市场三分钟》开放 24bit 无损环境声下载</h4>
+                <p>共 8 段素材，可用于二次创作，需在片尾注明来源。</p>
+                <span class="date">2026-11-23</span>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/wowwowo-news06/600/400" width="600" height="400" loading="lazy" alt="新人首作频道本月收录作品合集画面">
+              <div class="nb">
+                <h4>新人首作频道本月收录 46 支，9 支获编辑点评</h4>
+                <p>点评集中指出开头过长、光源不足、声音过载三类问题。</p>
+                <span class="date">2026-11-22</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related">
+          <div class="sec-head">
+            <h2>延伸方向 <small>8 个</small></h2>
+          </div>
+          <div class="rel">
+            <a href="/#featured">固定机位群像调度</a>
+            <a href="/#featured">无旁白纪录片段</a>
+            <a href="/#featured">拟音道具替代技巧</a>
+            <a href="/#featured">低照度布光方案</a>
+            <a href="/#featured">单镜头走位图</a>
+            <a href="/#featured">方言对白写作</a>
+            <a href="/#featured">环境声采样方法</a>
+            <a href="/#featured">新人投稿常见问题</a>
+          </div>
+        </section>
+
+        <!-- 11. 时间线 -->
+        <section class="section" id="timeline">
+          <div class="sec-head">
+            <h2>十一月更新时间线 <small>8 个节点</small></h2>
+          </div>
+          <div class="timeline">
+            <div class="tl"><time>2026-11-25</time><b>创作者访谈第 42 期上线</b><p>阿岸谈 15 秒叙事与分镜拆解，全长 38 分 20 秒。</p></div>
+            <div class="tl"><time>2026-11-24</time><b>城市夜行投稿达 233 支</b><p>距截止 4 天，编辑提示带人物出镜的作品更易入选。</p></div>
+            <div class="tl"><time>2026-11-23</time><b>《菜市场三分钟》开放素材下载</b><p>8 段 24bit 无损环境声，可用于二次创作。</p></div>
+            <div class="tl"><time>2026-11-21</time><b>手机影像栏目改版</b><p>按稳定、曝光、收音三类重新归档 310 支作品。</p></div>
+            <div class="tl"><time>2026-11-20</time><b>《走廊尽头》上线</b><p>一镜到底栏目第六支，全长 2 分 40 秒。</p></div>
+            <div class="tl"><time>2026-11-18</time><b>拟音入门第二讲发布</b><p>「用一把芹菜做出骨折声」，收藏 3.1k。</p></div>
+            <div class="tl"><time>2026-11-16</time><b>新人首作频道收录《宿舍熄灯之后》</b><p>本月新人频道完成度较高的一支，获编辑推荐。</p></div>
+            <div class="tl"><time>2026-11-12</time><b>十一月专题合集发布</b><p>夜间拍摄相关 14 支作品、3 篇教学与 1 期访谈。</p></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 右辅助栏 -->
+      <aside class="side" aria-label="辅助栏">
+        <div class="side-card">
+          <h3>本周热度榜</h3>
+          <ul class="rank">
+            <li><span class="no">1</span><a href="/#featured">电梯里的四十七秒</a><em>9.6</em></li>
+            <li><span class="no">2</span><a href="/#featured">菜市场三分钟</a><em>9.1</em></li>
+            <li><span class="no">3</span><a href="/#featured">阿岸访谈第 42 期</a><em>8.8</em></li>
+            <li><span class="no">4</span><a href="/#featured">高架桥下的第三个人</a><em>8.7</em></li>
+            <li><span class="no">5</span><a href="/#featured">用一把芹菜做出骨折声</a><em>8.5</em></li>
+            <li><span class="no">6</span><a href="/#featured">手机拍夜景先解决手抖</a><em>8.3</em></li>
+            <li><span class="no">7</span><a href="/#featured">一支 4 分钟短片拍了 11 天</a><em>8.2</em></li>
+            <li><span class="no">8</span><a href="/#featured">宿舍熄灯之后</a><em>8.0</em></li>
+          </ul>
+        </div>
+        <div class="side-card">
+          <h3>热门标签</h3>
+          <div class="side-tags">
+            <a href="/#featured">一镜到底</a>
+            <a href="/#featured">拟音</a>
+            <a href="/#featured">城市夜行</a>
+            <a href="/#featured">固定机位</a>
+            <a href="/#featured">环境声</a>
+            <a href="/#featured">手机影像</a>
+            <a href="/#featured">新人首作</a>
+            <a href="/#featured">低照度</a>
+            <a href="/#featured">幕后花絮</a>
+          </div>
+        </div>
+        <div class="side-card">
+          <h3>正在征集</h3>
+          <p style="font-size:12.5px;color:var(--text-2);line-height:1.7">
+            「城市夜行」拍摄挑战赛，全部素材需在 22:00 后拍摄，<b style="color:var(--accent-2)">11 月 28 日截止</b>。已收 233 支。
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- 页尾 -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <a class="brand" href="/#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7.5v9l7 4.5V3L4 7.5Z" fill="#fff" opacity=".95"/>
+            <path d="M13.5 4.2c3.6 1.3 5.6 4.7 5.6 7.8s-2 6.5-5.6 7.8V4.2Z" fill="#fff" opacity=".65"/>
+          </svg>
+        </span>
+        <span class="brand-text">wow<em>窝窝</em></span>
+      </a>
+      <p>以 15 秒到 8 分钟原创短片为核心的视频社区，涵盖剧情短片、纪录片段、拍摄教学与创作者访谈四条内容线。</p>
+    </div>
+    <div>
+      <h4>内容频道</h4>
+      <ul>
+        <li><a href="/#featured">剧情短片</a></li>
+        <li><a href="/#featured">纪录片段</a></li>
+        <li><a href="/#featured">拍摄教学</a></li>
+        <li><a href="/#featured">创作者访谈</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>专题栏目</h4>
+      <ul>
+        <li><a href="/#featured">一镜到底</a></li>
+        <li><a href="/#featured">声音设计</a></li>
+        <li><a href="/#featured">手机影像</a></li>
+        <li><a href="/#featured">新人首作</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>社区</h4>
+      <ul>
+        <li><a href="/#updates">更新动态</a></li>
+        <li><a href="/#comments">社区评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#faq">常见问答</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 wow窝窝 · 站内作品版权归各创作者所有</span>
+    <span>热度为播放、收藏与评论的综合计算值，非评分</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var btn = document.getElementById('qbtn');
+  var grid = document.getElementById('cardGrid');
+  var noresult = document.getElementById('noresult');
+  if(!q || !grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+  var data = cards.map(function(c){
+    return { el:c, text:(c.textContent || '').toLowerCase() };
+  });
+  function run(){
+    var kw = q.value.trim().toLowerCase();
+    if(!kw){
+      data.forEach(function(d){ d.el.style.display = ''; });
+      noresult.classList.remove('on');
+      return;
+    }
+    var hit = 0;
+    data.forEach(function(d){
+      if(d.text.indexOf(kw) > -1){ d.el.style.display = ''; hit++; }
+      else { d.el.style.display = 'none'; }
+    });
+    noresult.classList.toggle('on', hit === 0);
+  }
+  btn.addEventListener('click', run);
+  q.addEventListener('input', run);
+  q.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); run(); }
+  });
+})();
+</script>
+</body>
+                                                            </html>
